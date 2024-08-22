@@ -10,12 +10,10 @@ import 'package:sprinkle_and_sprout/widgets/logo_hero.dart';
 import 'package:sprinkle_and_sprout/widgets/titles.dart';
 
 class CreateAccount extends StatelessWidget {
-   CreateAccount({super.key});
+  CreateAccount({super.key});
   final FirebaseAuth _auth = FirebaseAuth.instance;
-    final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   String? _email, _password, _errorMessage;
-
-  
 
   Future<void> _signUp() async {
     if (_formKey.currentState!.validate()) {
@@ -38,8 +36,6 @@ class CreateAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-  
     TextEditingController nameController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
@@ -56,7 +52,24 @@ class CreateAccount extends StatelessWidget {
                 children: [
                   const Titles(title: "Create Account"),
                   const SizedBox(height: 10),
-                  _buildInputFields(nameController,emailController,passwordController),
+                  Column(
+                    children: [
+                      InputField(
+                        placeholder: "Name",
+                        controller: nameController,
+                      ),
+                      SizedBox(height: 20),
+                      InputField(
+                        placeholder: "Email address",
+                        controller: emailController,
+                      ),
+                      SizedBox(height: 20),
+                      InputField(
+                        placeholder: "Password",
+                        controller: passwordController,
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 30),
                   GreenButton(
                     text: "Sign In Now",
@@ -96,7 +109,7 @@ class CreateAccount extends StatelessWidget {
             BottomStatement(
               text: "Already have an Account?",
               buttonText: "Sign in",
-              onPressed: () => Get.to(() =>  SignInScreen()),
+              onPressed: () => Get.to(() => SignInScreen()),
             ),
           ],
         ),
@@ -104,18 +117,4 @@ class CreateAccount extends StatelessWidget {
     );
   }
 
-
-
-  // Input fields widget extraction
-  Widget _buildInputFields(name,email,password) {
-    return  Column(
-      children:  [
-        InputField(placeholder: "Name",controller: name,),
-        SizedBox(height: 20),
-        InputField(placeholder: "Email address",controller: email,),
-        SizedBox(height: 20),
-        InputField(placeholder: "Password",controller: password,),
-      ],
-    );
-  }
 }
