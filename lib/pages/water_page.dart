@@ -28,10 +28,18 @@ class WaterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Daily Water Consumption',
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        title: Column(
+             mainAxisSize: MainAxisSize.min, // Minimizes the size of the column
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 50,),
+            const Text(
+              'Daily Water Consumption',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
+         toolbarHeight: 80, // Adjust the height of the AppBar
       ),
       body: SafeArea(
         child: Padding(
