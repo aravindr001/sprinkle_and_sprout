@@ -20,15 +20,8 @@ class CustomListTile extends StatelessWidget {
         border: Border.all(color: Colors.black, width: 1.0),
         borderRadius: BorderRadius.circular(12.0),
       ),
-      child: Row(
-        children: [
-          leading,
-          const SizedBox(width: 16),
-          Expanded(child: title),
-          const SizedBox(width: 16),
-          trailing,
-        ],
-      ),
+      child: ListTile(leading: leading,title: title,trailing: trailing,),
     );
+
   }
 }

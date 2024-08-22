@@ -58,12 +58,12 @@ class CreateAccount extends StatelessWidget {
                         placeholder: "Name",
                         controller: nameController,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       InputField(
                         placeholder: "Email address",
                         controller: emailController,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       InputField(
                         placeholder: "Password",
                         controller: passwordController,
