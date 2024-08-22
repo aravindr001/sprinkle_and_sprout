@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "519937790479",
+    "project_id": "sprinkle-and-sprout-570f7",
+    "storage_bucket": "sprinkle-and-sprout-570f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519937790479:android:e1108594e61c419b68097a",
+        "android_client_info": {
+          "package_name": "com.example.sprinkle_and_sprout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7IJPh1FjXiNpb-dvZGPfynghpKfVVt0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:sprinkle_and_sprout/screens/home.dart';
+import 'package:sprinkle_and_sprout/screens/main_screen.dart';
 import 'package:sprinkle_and_sprout/screens/sign_in.dart';
 import 'package:sprinkle_and_sprout/widgets/bottom_statement.dart';
 import 'package:sprinkle_and_sprout/widgets/green_button.dart';
@@ -9,36 +10,93 @@ import 'package:sprinkle_and_sprout/widgets/logo_hero.dart';
 import 'package:sprinkle_and_sprout/widgets/titles.dart';
 
 class CreateAccount extends StatelessWidget {
-  const CreateAccount({super.key});
+   CreateAccount({super.key});
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+    final _formKey = GlobalKey<FormState>();
+  String? _email, _password, _errorMessage;
+
+  
+
+  Future<void> _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      try {
+        UserCredential userCredential =
+            await _auth.createUserWithEmailAndPassword(
+          email: _email!,
+          password: _password!,
+        );
+        // Navigate to the next screen or show a success message
+        print('User signed up: ${userCredential.user?.email}');
+      } on FirebaseAuthException catch (e) {
+        // setState(() {
+        _errorMessage = e.message;
+        // });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+
+  
+    TextEditingController nameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
             const LogoHero(),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Column(
                 children: [
                   const Titles(title: "Create Account"),
-                  const SizedBox(height: 20),
-                  _buildInputFields(),
+                  const SizedBox(height: 10),
+                  _buildInputFields(nameController,emailController,passwordController),
                   const SizedBox(height: 30),
                   GreenButton(
                     text: "Sign In Now",
-                    onPressed: () => Get.to(() => const HomePage()),
+                    onPressed: () => Get.off(() => const HomePage()),
                   ),
                 ],
+              ),
+            ),
+            GestureDetector(
+              onTap: _signUp,
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.grey.shade300),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 2,
+                      offset: const Offset(0, 1),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Image.asset(
+                    'assets/images/google_logo.png',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 10),
             BottomStatement(
               text: "Already have an Account?",
               buttonText: "Sign in",
-              onPressed: () => Get.to(() => const SignInScreen()),
+              onPressed: () => Get.to(() =>  SignInScreen()),
             ),
           ],
         ),
@@ -49,14 +107,14 @@ class CreateAccount extends StatelessWidget {
 
 
   // Input fields widget extraction
-  Widget _buildInputFields() {
-    return Column(
-      children: const [
-        InputField(placeholder: "Name"),
+  Widget _buildInputFields(name,email,password) {
+    return  Column(
+      children:  [
+        InputField(placeholder: "Name",controller: name,),
         SizedBox(height: 20),
-        InputField(placeholder: "Email address"),
+        InputField(placeholder: "Email address",controller: email,),
         SizedBox(height: 20),
-        InputField(placeholder: "Password"),
+        InputField(placeholder: "Password",controller: password,),
       ],
     );
   }

@@ -153,7 +153,7 @@ class GetStarted extends StatelessWidget {
                 opacity: _animation,
                 child: GreenButton(
                     text: "Get Started",
-                    onPressed: () => Get.to(()=> const SignInScreen())),
+                    onPressed: () => Get.off(()=> SignInScreen())),
               )
             : const Text(" ",
                 style: TextStyle(
