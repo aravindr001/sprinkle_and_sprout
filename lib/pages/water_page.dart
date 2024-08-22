@@ -51,6 +51,7 @@ class WaterScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'waterFAB',
         onPressed: () => _showAddWaterConsumptionDialog(context),
         child: const Icon(Icons.add),
       ),

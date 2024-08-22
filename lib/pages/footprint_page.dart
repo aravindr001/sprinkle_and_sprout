@@ -50,18 +50,19 @@ class FootPrint extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _showAddWaterConsumptionDialog(context),
+        heroTag: 'footprintFAB',  
+        onPressed: () => _showAddFootprintnDialog(context),
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  void _showAddWaterConsumptionDialog(BuildContext context) {
+  void _showAddFootprintnDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Add Water Consumption'),
+          title: const Text('Add your Footprint'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

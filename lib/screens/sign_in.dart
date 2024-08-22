@@ -10,7 +10,7 @@ import 'package:sprinkle_and_sprout/widgets/logo_hero.dart';
 import 'package:sprinkle_and_sprout/widgets/titles.dart';
 
 class SignInScreen extends StatelessWidget {
-  SignInScreen({super.key});
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
