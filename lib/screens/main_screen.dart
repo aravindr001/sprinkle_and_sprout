@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sprinkle_and_sprout/controllers/bottom_navi_controller.dart';
+import 'package:sprinkle_and_sprout/pages/footprint_page.dart';
 import 'package:sprinkle_and_sprout/pages/home_page.dart';
 import 'package:sprinkle_and_sprout/pages/water_page.dart';
 
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
           children: const [
             HomeScreen(),
             WaterScreen(),
-            Center(child: Text('Favorites Page')),
+            FootPrint(),
             Center(child: Text('Profile Page')),
           ],
         ),

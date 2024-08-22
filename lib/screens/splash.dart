@@ -76,13 +76,10 @@ class LogoWithAnimation extends StatelessWidget {
     return AnimatedBuilder(
       animation: _animation,
       builder: (BuildContext context, Widget? child) {
-        return Transform.rotate(
-          angle: _animation.value * 2 * 3.14,
-          child: Transform.scale(
-            scale: _animation.value,
-            child:
-                Hero(tag: "logo", child: Image.asset('assets/images/logo.png')),
-          ),
+        return Transform.scale(
+          scale: _animation.value,
+          child:
+              Hero(tag: "logo", child: Image.asset('assets/images/logo.png')),
         );
       },
     );

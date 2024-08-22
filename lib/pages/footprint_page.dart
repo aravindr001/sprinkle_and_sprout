@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:sprinkle_and_sprout/widgets/custom_list_tile.dart';
 
-class WaterScreen extends StatelessWidget {
-  const WaterScreen({super.key});
+class FootPrint extends StatelessWidget {
+  const FootPrint({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> waterConsumptionDict = [
+    final List<Map<String, dynamic>> footprint = [
       {
-        "activity":"Chores",
-        "image": "assets/activities_images/washing.png",
-        "amount": "5L"
+        "activity": "Cooking",
+        "image": "assets/footprint_images/burning.png",
+        "time": "15 minutes"
       },
       {
-        "activity": "Personal Hygiene",
-        "image": "assets/activities_images/personal_use.png",
-        "amount": "25L"
-
+        "activity": "Bus",
+        "image": "assets/footprint_images/Bus.png",
+        "time": "30 mins"
       },
       {
-        "activity": "Gardening",
-        "image": "assets/activities_images/gardening.png",
-        "amount": "10L"
+        "activity": "Waste Burning",
+        "image": "assets/footprint_images/burning.png",
+        "time": "1.5 hour" 
       },
     ];
 
@@ -29,22 +28,22 @@ class WaterScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Daily Water Consumption',
+          'Daily Carbon Footprint',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left:20.0,right:20,top:40),
+          padding: const EdgeInsets.only(left: 20.0, right: 20, top: 40),
           child: ListView.separated(
             itemCount: 3,
             separatorBuilder: (_, __) => const SizedBox(height: 30),
             itemBuilder: (context, index) {
-              final activityData = waterConsumptionDict[index];
+              final activityData = footprint[index];
               return CustomListTile(
                 leading: activityData['image'],
                 title: activityData['activity'],
-                trailing: activityData['amount'],
+                trailing: activityData['time'],
               );
             },
           ),
