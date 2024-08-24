@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                     initialAngleInDegree: 30,
                     chartType: ChartType.ring,
                     ringStrokeWidth: 52,
-                    centerText: "",
+                    centerText: pieController.index.value ? "Water used":"Carbon Footprint",
                     legendOptions: const LegendOptions(
                       showLegendsInRow: false,
                       legendPosition: LegendPosition.bottom,
