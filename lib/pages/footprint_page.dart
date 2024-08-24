@@ -27,14 +27,14 @@ class FootPrint extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Column(
+        title: const Column(
           mainAxisSize: MainAxisSize.min, // Minimizes the size of the column
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: 50,
             ),
-            const Text(
+            Text(
               'Daily Carbon Consumption',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),

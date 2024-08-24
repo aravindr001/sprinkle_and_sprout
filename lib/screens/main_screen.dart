@@ -26,14 +26,19 @@ class HomePage extends StatelessWidget {
       ),
       bottomNavigationBar: Obx(
         () {
-          return BottomNavigationBarTheme(
-            data: const BottomNavigationBarThemeData(
-              backgroundColor: Colors.black,
-              selectedItemColor:Colors.green,
-              unselectedItemColor: Colors.black 
-            ),
+          return Theme(
+            data: Theme.of(context).copyWith(
+                // sets the background color of the `BottomNavigationBar`
+                canvasColor: Colors.green,
+                // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+                // primaryColor: Colors.red,
+                textTheme: Theme.of(context)
+                    .textTheme
+                    // .copyWith(bodySmall: const TextStyle(color: Colors.yellow))
+                    ), 
             child: BottomNavigationBar(
-              backgroundColor: Colors.green,
+              unselectedItemColor: Colors.black,
+              // backgroundColor: Colors.green,
               currentIndex: selectedIndex.index.value,
               onTap: (index) => selectedIndex.change(index),
               items:  [
@@ -42,6 +47,7 @@ class HomePage extends StatelessWidget {
                 _buildBottomNavItem(Icons.co2, 'FootPrint'),
                 _buildBottomNavItem(Icons.chat_bubble, 'AI'),
               ],
+              type: BottomNavigationBarType.shifting, // This line makes the bottom navigation bar floating
             
               
             ),
