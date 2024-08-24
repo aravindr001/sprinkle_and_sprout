@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/request/request.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:sprinkle_and_sprout/controllers/pi_chart_controller.dart';
 
+PieController pieController = Get.put(PieController());
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -13,7 +17,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -32,8 +36,11 @@ class HomeScreen extends StatelessWidget {
                   height: 40,
                 ),
                 const WaterAndCarbonMonitor(),
-                const SizedBox(height: 70,),
+                const SizedBox(
+                  height: 70,
+                ),
                 PieChart(dataMap: dataMap)
+                // PieChart(dataMap: pieController.dataMap1.map((key, value) => MapEntry(key.toString(), value.toDouble())))
               ],
             ),
           ),
@@ -63,13 +70,27 @@ class WaterAndCarbonMonitor extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const Monitoring(text1: '100L', text2: 'water used'),
+            Monitoring(
+              text1: '100L',
+              text2: 'water used',
+              function: () {
+                pieController.index.value = true;
+                print(pieController.index.value);
+              },
+            ),
             Container(
               width: 1,
               height: height - 20,
               color: Colors.black,
             ),
-            const Monitoring(text1: '87KG', text2: 'carbon footprint'),
+            Monitoring(
+              text1: '87KG',
+              text2: 'carbon footprint',
+              function: () {
+                pieController.index.value = false;
+                print(pieController.index.value);
+              },
+            ),
           ],
         ),
       ),
@@ -80,27 +101,34 @@ class WaterAndCarbonMonitor extends StatelessWidget {
 class Monitoring extends StatelessWidget {
   final String text1;
   final String text2;
+  final VoidCallback function;
 
-  const Monitoring({super.key, required this.text1, required this.text2});
+  const Monitoring(
+      {super.key,
+      required this.text1,
+      required this.text2,
+      required this.function});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(text1,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.w900)),
-            Text(text2,
-                style: const TextStyle(
-                    color: Color.fromARGB(255, 131, 130, 127),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w900))
-          ],
+      child: GestureDetector(
+        onTap: function,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(text1,
+                  style: const TextStyle(
+                      fontSize: 30, fontWeight: FontWeight.w900)),
+              Text(text2,
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 131, 130, 127),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900))
+            ],
+          ),
         ),
-        // color: Colors.red,
       ),
     );
   }
