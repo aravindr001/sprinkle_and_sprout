@@ -78,14 +78,14 @@ class FootPrint extends StatelessWidget {
             children: [
               TextField(
                 decoration: const InputDecoration(
-                  labelText: 'Amount (in liters)',
+                  labelText: 'Description'
                 ),
                 keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 16),
               TextField(
                 decoration: const InputDecoration(
-                  labelText: 'Description',
+                  labelText: 'Time (in minutes)',
                 ),
               ),
             ],
