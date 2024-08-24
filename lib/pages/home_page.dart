@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/request/request.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:sprinkle_and_sprout/controllers/pi_chart_controller.dart';
 
 PieController pieController = Get.put(PieController());
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-
-  Map<String, double> dataMap = {
-    "Chores": 5,
-    "Personal Hygine": 3,
-    "Gardening": 2,
-  };
+   HomeScreen({super.key});
+  final colorList = <Color>[
+    const Color(0xfffdcb6e),
+    const Color(0xff0984e3),
+    const Color(0xfffd79a8),
+    const Color(0xffe17055),
+    const Color(0xff6c5ce7),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,42 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 70,
                 ),
-                PieChart(dataMap: dataMap)
-                // PieChart(dataMap: pieController.dataMap1.map((key, value) => MapEntry(key.toString(), value.toDouble())))
+                Obx(() => PieChart(
+                    dataMap: pieController.index.value
+                        ? pieController.dataMap
+                        : pieController.dataMap2),
+                    ),
+                Obx(
+                  () => PieChart(
+                      dataMap: pieController.index.value
+                          ? pieController.dataMap
+                          : pieController.dataMap2,
+                          animationDuration: const Duration(milliseconds: 800),
+                    chartLegendSpacing: 32,
+                    chartRadius: MediaQuery.of(context).size.width / 3.2,
+                    colorList: colorList,
+                    initialAngleInDegree: 0,
+                    chartType: ChartType.ring,
+                    ringStrokeWidth: 32,
+                    centerText: "",
+                    legendOptions: const LegendOptions(
+                      showLegendsInRow: false,
+                      legendPosition: LegendPosition.right,
+                      showLegends: true,
+                      legendShape: BoxShape.circle,
+                      legendTextStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    chartValuesOptions: const ChartValuesOptions(
+                      showChartValueBackground: true,
+                      showChartValues: true,
+                      showChartValuesInPercentage: false,
+                      showChartValuesOutside: false,
+                      decimalPlaces: 1,
+                    ),
+                        ),
+                )
               ],
             ),
           ),
@@ -74,8 +108,7 @@ class WaterAndCarbonMonitor extends StatelessWidget {
               text1: '100L',
               text2: 'water used',
               function: () {
-                pieController.index.value = true;
-                print(pieController.index.value);
+                pieController.change(true);
               },
             ),
             Container(
@@ -87,8 +120,7 @@ class WaterAndCarbonMonitor extends StatelessWidget {
               text1: '87KG',
               text2: 'carbon footprint',
               function: () {
-                pieController.index.value = false;
-                print(pieController.index.value);
+                pieController.change(false);
               },
             ),
           ],
