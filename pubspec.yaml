@@ -37,6 +37,7 @@ dependencies:
   get: ^4.6.6
   google_fonts: ^6.2.1
   google_sign_in: ^6.2.1
+  pie_chart: ^5.4.0
 
 dev_dependencies:
   flutter_lints: ^3.0.0

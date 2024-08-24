@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
       body: Obx(
         () => IndexedStack(
           index: selectedIndex.index.toInt(),
-          children: const [
+          children:  [
             HomeScreen(),
             WaterScreen(),
             FootPrint(),
