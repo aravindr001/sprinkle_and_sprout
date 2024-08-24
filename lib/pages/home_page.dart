@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:sprinkle_and_sprout/constants.dart';
 import 'package:sprinkle_and_sprout/controllers/pi_chart_controller.dart';
 
 PieController pieController = Get.put(PieController());
 
 class HomeScreen extends StatelessWidget {
    HomeScreen({super.key});
-  final colorList = <Color>[
-    const Color(0xfffdcb6e),
-    const Color(0xff0984e3),
-    const Color(0xfffd79a8),
-    const Color(0xffe17055),
-    const Color(0xff6c5ce7),
-  ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     chartValuesOptions: const ChartValuesOptions(
-                      showChartValueBackground: true,
+                      showChartValueBackground: false,
                       showChartValues: true,
                       showChartValuesInPercentage: false,
                       showChartValuesOutside: false,

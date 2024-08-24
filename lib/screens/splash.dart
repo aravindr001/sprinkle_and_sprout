@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:sprinkle_and_sprout/screens/sign_in.dart';
 import 'package:sprinkle_and_sprout/widgets/green_button.dart';
+import 'package:sprinkle_and_sprout/widgets/logo_hero.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -78,8 +79,7 @@ class LogoWithAnimation extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return Transform.scale(
           scale: _animation.value,
-          child:
-              Hero(tag: "logo", child: Image.asset('assets/images/logo.png')),
+          child: const LogoHero()
         );
       },
     );
@@ -105,10 +105,10 @@ class AppName extends StatelessWidget {
         return _controller.isCompleted
             ? FadeTransition(
                 opacity: _animation,
-                child: const Text('SPRINKLE AND SPROUT',
+                child: const Text('ECO-METER',
                     style: TextStyle(
                       color: Color.fromRGBO(153, 154, 148, 1),
-                      fontSize: 25,
+                      fontSize: 45,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
                       shadows: [
