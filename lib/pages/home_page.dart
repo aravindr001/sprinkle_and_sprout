@@ -39,12 +39,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 70,
                 ),
-                Obx(() => PieChart(
-                    dataMap: pieController.index.value
-                        ? pieController.dataMap
-                        : pieController.dataMap2),
-                    ),
-                    SizedBox(height:30),
+                
                 Obx(
                   () => PieChart(
                       dataMap: pieController.index.value
@@ -52,17 +47,17 @@ class HomeScreen extends StatelessWidget {
                           : pieController.dataMap2,
                           animationDuration: const Duration(milliseconds: 800),
                     chartLegendSpacing: 32,
-                    chartRadius: MediaQuery.of(context).size.width / 3.2,
+                    chartRadius: MediaQuery.of(context).size.width / 1.5, // Increased size
                     colorList: colorList,
-                    initialAngleInDegree: 0,
+                    initialAngleInDegree: 30,
                     chartType: ChartType.ring,
-                    ringStrokeWidth: 32,
+                    ringStrokeWidth: 52,
                     centerText: "",
                     legendOptions: const LegendOptions(
                       showLegendsInRow: false,
-                      legendPosition: LegendPosition.right,
+                      legendPosition: LegendPosition.bottom,
                       showLegends: true,
-                      legendShape: BoxShape.circle,
+                      legendShape: BoxShape.rectangle,
                       legendTextStyle: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
