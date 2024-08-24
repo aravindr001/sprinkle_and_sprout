@@ -44,6 +44,7 @@ class HomeScreen extends StatelessWidget {
                         ? pieController.dataMap
                         : pieController.dataMap2),
                     ),
+                    SizedBox(height:30),
                 Obx(
                   () => PieChart(
                       dataMap: pieController.index.value
