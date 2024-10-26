@@ -22,7 +22,7 @@ class BottomStatement extends StatelessWidget {
           onTap: onPressed,
           child: Text(
             buttonText,
-            style: const TextStyle(color: Colors.green),
+            style: const TextStyle(color: Colors.brown),
           ),
         ),
       ],

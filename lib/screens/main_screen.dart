@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sprinkle_and_sprout/controllers/bottom_navi_controller.dart';
+import 'package:sprinkle_and_sprout/navigator/chat.dart';
 import 'package:sprinkle_and_sprout/pages/footprint_page.dart';
 import 'package:sprinkle_and_sprout/pages/home_page.dart';
 import 'package:sprinkle_and_sprout/pages/water_page.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
             HomeScreen(),
             WaterScreen(),
             FootPrint(),
-            Center(child: Text('Profile Page')),
+            ChatBot()
           ],
         ),
       ),

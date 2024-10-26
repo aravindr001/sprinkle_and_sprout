@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:sprinkle_and_sprout/screens/sign_in.dart';
-import 'package:sprinkle_and_sprout/widgets/green_button.dart';
+import 'package:sprinkle_and_sprout/widgets/custom_button.dart';
 import 'package:sprinkle_and_sprout/widgets/logo_hero.dart';
 
 class SplashScreen extends StatefulWidget {
