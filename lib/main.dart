@@ -1,23 +1,24 @@
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sprinkle_and_sprout/constants/api_consts.dart';
-import 'package:sprinkle_and_sprout/firebase_options.dart';
+import 'package:sprinkle_and_sprout/controllers/auth_controller.dart';
+
+import 'package:sprinkle_and_sprout/screens/main_screen.dart';
+import 'package:sprinkle_and_sprout/screens/sign_in.dart';
 import 'package:sprinkle_and_sprout/screens/splash.dart';
 
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: const FirebaseOptions(apiKey: "AIzaSyC7IJPh1FjXiNpb-dvZGPfynghpKfVVt0g", appId: "1:519937790479:android:e1108594e61c419b68097a", messagingSenderId: "519937790479", projectId: "sprinkle-and-sprout-570f7")
-  // );
-  
+ 
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    // options: DefaultFirebaseOptions.currentPlatform,
   );
+  Get.lazyPut(() => AuthController()); 
   // await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
@@ -27,6 +28,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => HomePage(),
+        ),
+        GetPage(
+          name: '/login',
+          page: () => SignInScreen(),
+        ),
+      ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.soraTextTheme(
@@ -39,7 +50,7 @@ class MyApp extends StatelessWidget {
         ),
 
       ),
-      home: const SplashScreen(),
+      home:  SplashScreen(),
     );
   }
 }

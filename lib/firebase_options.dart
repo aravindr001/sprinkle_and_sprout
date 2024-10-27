@@ -53,11 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyArIlfmF9qhfRhjQFnZ-8RLnjFjlzOdzQQ',
-    appId: '1:958036703906:android:8bf719ad9bc9ee262a75fb',
-    messagingSenderId: '958036703906',
-    projectId: 'wecare-c55d5',
-    databaseURL: 'https://wecare-c55d5-default-rtdb.firebaseio.com',
-    storageBucket: 'wecare-c55d5.appspot.com',
+    apiKey: 'AIzaSyAUx3dUNXE6EvxtRjfjNmoND-dbHKR0F4c',
+    appId: '1:891826901288:android:43bec90d375c841665c01d',
+    messagingSenderId: '891826901288',
+    projectId: 'eco-meter-15f5f',
+    storageBucket: 'eco-meter-15f5f.appspot.com',
   );
+
 }

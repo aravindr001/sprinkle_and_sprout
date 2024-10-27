@@ -1,156 +1,90 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pie_chart/pie_chart.dart';
-import 'package:sprinkle_and_sprout/constants.dart';
-import 'package:sprinkle_and_sprout/controllers/pi_chart_controller.dart';
-
-PieController pieController = Get.put(PieController());
+import 'package:sprinkle_and_sprout/controllers/auth_controller.dart';
+import 'package:sprinkle_and_sprout/widgets/chart.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
-  
+  HomeScreen({super.key});
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 28.0, left: 20, right: 20),
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: DashboardTxt(),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                const UserDetails(),
-                const SizedBox(
-                  height: 40,
-                ),
-                const WaterAndCarbonMonitor(),
-                const SizedBox(
-                  height: 70,
-                ),
-                
-                Obx(
-                  () => PieChart(
-                      dataMap: pieController.index.value
-                          ? pieController.dataMap
-                          : pieController.dataMap2,
-                          animationDuration: const Duration(milliseconds: 800),
-                    chartLegendSpacing: 32,
-                    chartRadius: MediaQuery.of(context).size.width / 1.5, // Increased size
-                    colorList: colorList,
-                    initialAngleInDegree: 30,
-                    chartType: ChartType.ring,
-                    ringStrokeWidth: 52,
-                    centerText: pieController.index.value ? "Water used":"Carbon Footprint",
-                    legendOptions: const LegendOptions(
-                      showLegendsInRow: false,
-                      legendPosition: LegendPosition.bottom,
-                      showLegends: true,
-                      legendShape: BoxShape.rectangle,
-                      legendTextStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    chartValuesOptions: const ChartValuesOptions(
-                      showChartValueBackground: false,
-                      showChartValues: true,
-                      showChartValuesInPercentage: false,
-                      showChartValuesOutside: false,
-                      decimalPlaces: 1,
-                    ),
-                        ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class WaterAndCarbonMonitor extends StatelessWidget {
-  const WaterAndCarbonMonitor({
-    super.key,
-  });
-
-  final double height = 100;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.black),
-          color: Colors.white,
-        ),
-        child: Row(
-          children: [
-            Monitoring(
-              text1: '100L',
-              text2: 'water used',
-              function: () {
-                pieController.change(true);
-              },
-            ),
-            Container(
-              width: 1,
-              height: height - 20,
-              color: Colors.black,
-            ),
-            Monitoring(
-              text1: '87KG',
-              text2: 'carbon footprint',
-              function: () {
-                pieController.change(false);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Monitoring extends StatelessWidget {
-  final String text1;
-  final String text2;
-  final VoidCallback function;
-
-  const Monitoring(
-      {super.key,
-      required this.text1,
-      required this.text2,
-      required this.function});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: function,
-        child: Center(
+          padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(text1,
-                  style: const TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.w900)),
-              Text(text2,
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 131, 130, 127),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w900))
+              const DashboardTxt(),
+              const SizedBox(height: 40),
+              UserDetails(name: authController.userName.value),
+              const SizedBox(height: 40),
+              Container(
+                height: 140,
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 230, 228, 228), width: 2),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "December",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconColumn(
+                            iconPath: "assets/images/Droplet.png", label: "13"),
+                        VerticalDivider(
+                          width: 2,
+                          thickness: 1,
+                          color: Colors.black,
+                        ),
+                        IconColumn(
+                            iconPath: "assets/images/flash 1.png", label: "13"),
+                        VerticalDivider(
+                          width: 2,
+                          thickness: 1,
+                          color: Colors.black,
+                        ),
+                        IconColumn(
+                            iconPath: "assets/images/gas-cylinder 1.png",
+                            label: "13"),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 70),
+
+              // MonthlyBarChart()
+              BarChartWidget(
+                monthlyData: [
+                  5,
+                  8,
+                  3,
+                  7,
+                  10,
+                  6,
+                  12,
+                  9,
+                  5,
+                  8,
+                  7,
+                  10
+                ], // Sample data
+              ),
             ],
           ),
+
+
         ),
       ),
     );
@@ -158,46 +92,84 @@ class Monitoring extends StatelessWidget {
 }
 
 class DashboardTxt extends StatelessWidget {
-  const DashboardTxt({
-    super.key,
-  });
+  const DashboardTxt({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "Dashboard",
-      style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Text(
+          "Dashboard",
+          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+        ),
+        ElevatedButton(
+          onPressed: () => Get.find<AuthController>().signOut(),
+          child: const Text('Log out'),
+        ),
+      ],
     );
   }
 }
 
 class UserDetails extends StatelessWidget {
+  final String name;
+
   const UserDetails({
-    super.key,
-  });
+    Key? key,
+    required this.name,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: ListTile(
-        title: const Text(
-          "Naman Jha",
-          style: TextStyle(fontSize: 45, color: Colors.white),
-        ),
-        subtitle: const Text(
-          "kerala, India",
-          style: TextStyle(fontSize: 25, color: Colors.white),
-        ),
-        leading: Image.asset(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
           "assets/images/usr.png",
-          width: 60,
-          height: 60,
+          width: 80,
+          height: 80,
         ),
-      ),
+        const SizedBox(width: 20),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name,
+              style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "Kerala, India",
+              style: TextStyle(fontSize: 20, color: Colors.black54),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class IconColumn extends StatelessWidget {
+  final String iconPath;
+  final String label;
+
+  const IconColumn({
+    Key? key,
+    required this.iconPath,
+    required this.label,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset(iconPath, width: 40, height: 40),
+        const SizedBox(height: 2),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }

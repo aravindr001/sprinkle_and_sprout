@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sprinkle_and_sprout/controllers/bottom_navi_controller.dart';
 import 'package:sprinkle_and_sprout/navigator/chat.dart';
-import 'package:sprinkle_and_sprout/pages/footprint_page.dart';
+import 'package:sprinkle_and_sprout/pages/addDetails.dart';
 import 'package:sprinkle_and_sprout/pages/home_page.dart';
-import 'package:sprinkle_and_sprout/pages/water_page.dart';
+import 'package:sprinkle_and_sprout/pages/leaderBoard.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
           index: selectedIndex.index.toInt(),
           children:  [
             HomeScreen(),
-            WaterScreen(),
-            FootPrint(),
+            Leaderboard(),
+            AddDetails(),
             ChatBot()
           ],
         ),
@@ -44,8 +44,8 @@ class HomePage extends StatelessWidget {
               onTap: (index) => selectedIndex.change(index),
               items:  [
                 _buildBottomNavItem(Icons.home, 'Home'),
-                _buildBottomNavItem(Icons.water_drop_outlined, 'Aqua'),
-                _buildBottomNavItem(Icons.co2, 'FootPrint'),
+                _buildBottomNavItem(Icons.list, 'Leader Board'),
+                _buildBottomNavItem(Icons.add, 'Add'),
                 _buildBottomNavItem(Icons.chat_bubble, 'AI'),
               ],
               type: BottomNavigationBarType.shifting, // This line makes the bottom navigation bar floating

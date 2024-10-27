@@ -5,15 +5,18 @@ class GreenButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color backgroundColor;
   final TextStyle textStyle;
-  final Size size;
+  final double? width;
+  final double? height;
 
   const GreenButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor = Colors.brown, // Default color is green
-    this.textStyle = const TextStyle(color: Colors.white, fontSize: 20), // Default text style
-    this.size = const Size(200, 50), // Default size
+    this.backgroundColor = Colors.green, // Default color is green
+    this.textStyle = const TextStyle(
+        color: Colors.white, fontSize: 20), // Default text style
+    this.width, // Optional width parameter
+    this.height, // Optional height parameter
   });
 
   @override
@@ -25,7 +28,10 @@ class GreenButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        minimumSize: size,
+        minimumSize: Size(
+          width ?? 200, // Default width if not provided
+          height ?? 50, // Default height if not provided
+        ),
       ),
       child: Text(
         text,

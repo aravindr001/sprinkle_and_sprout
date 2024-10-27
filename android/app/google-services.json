@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "958036703906",
-    "firebase_url": "https://wecare-c55d5-default-rtdb.firebaseio.com",
-    "project_id": "wecare-c55d5",
-    "storage_bucket": "wecare-c55d5.appspot.com"
+    "project_number": "891826901288",
+    "project_id": "eco-meter-15f5f",
+    "storage_bucket": "eco-meter-15f5f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:958036703906:android:8bf719ad9bc9ee262a75fb",
+        "mobilesdk_app_id": "1:891826901288:android:43bec90d375c841665c01d",
         "android_client_info": {
           "package_name": "com.example.sprinkle_and_sprout"
         }
@@ -16,26 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyArIlfmF9qhfRhjQFnZ-8RLnjFjlzOdzQQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:958036703906:android:f8f8f77a7726a4742a75fb",
-        "android_client_info": {
-          "package_name": "com.example.wecare"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyArIlfmF9qhfRhjQFnZ-8RLnjFjlzOdzQQ"
+          "current_key": "AIzaSyAUx3dUNXE6EvxtRjfjNmoND-dbHKR0F4c"
         }
       ],
       "services": {

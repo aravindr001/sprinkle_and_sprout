@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "/Users/aravindr/project/sprinkle_and_sprout/windows"
+    "cmake.sourceDirectory": "/Users/aravindr/project/sprinkle_and_sprout/windows",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
