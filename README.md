@@ -21,3 +21,7 @@ Openai API for chatbot integration -(https://docs.google.com/document/d/1kyg2og6
 ## Other Links
 Figma UI -([https://www.figma.com/design/BQPh05ICmTgprFkVxm6FyB/Untitled?node-id=0-1&t=Vfi2rlKfzmbQPUfL-1)  
 Presentation - (https://www.canva.com/design/DAGR8JDSJ5E/2aoQ-mmAyct5zm05AcdXZw/view?utm_content=DAGR8JDSJ5E&utm_campaign=designshare&utm_medium=link&utm_source=editor](https://www.figma.com/design/sEL07mMhFuXihMypfF12pc/Sprinkle-and-Sprout?node-id=0-1&t=CSCwRpFbj6DAPgIN-1)  
+##Future Scope
+1.Automatically collecting usage data with IOT
+2.Over-usage warning system.
+3.Analysing usage trend and enhancing future usage
