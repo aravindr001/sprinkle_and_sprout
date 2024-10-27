@@ -1,5 +1,5 @@
 ## Eco-Meter  
-WeCare is a CrossPlatform flutter mobile application that uses artificial intelligence to help users seek medical help with in the reach of hands. It houses a digital bloodbank which manages the requiremnent and availability of blood.WeCare shows critical containment zones using maps.WeCare constantly fetches the users location that enables the possiblility of location idenfication during crisis situations like diesease outbreak and natural calamities, it helps the rescue departments to supply the needed medical and food supplies during crisis.
+Eco-Meter is mobile app that gives the users a sustainability challenge. Users are ranked in a leaderboard on the basis of their locality , every month each user will be rewarded with a token if their monthly usage is lesser than their community average, else they have to plant a tree to compensate for their negligence.The App has an artificial intelligence integrated chat assistant which helps the users with information on how to reduce the monthly usage effectively.
 ## Team Members
 [Arunraj V](https://github.com/Arunrxj-v)
 [Aravind R](https://github.com/aravindr001)
@@ -7,13 +7,17 @@ WeCare is a CrossPlatform flutter mobile application that uses artificial intell
 
 
 ## Link to Project
-[WeCare](https://drive.google.com/drive/folders/1ZRvpTQWReJMs2f1nAYIXO2UGz4rfyWnC?usp=share_link)
+[Eco-Meter](https://drive.google.com/drive/folders/1ZRvpTQWReJMs2f1nAYIXO2UGz4rfyWnC?usp=share_link)
 
 ## How it Works ?
-WeCare's user interface is completely built using flutter and is backed by firebase. THe Ai medical consultation is implemented by building a chatbot which is connected to GPT 3.5 Turbo model using Openai API. The Digital bloodbank works by searching the database for matching bloodgroups and pinging them with requirement notifications. The Containment Zone map is implemented using an opensource flutter maps API and using this API the emergency location identifier is implemented.
+Eco-Meter is a flutter app that gives user challenge by gamifying sustainability.The water,electricty and cooking gas usage is collected from user and compared with the average usage of the locality and given a token if it is less than the average,else given task to plant a tree if they exceed the average. There will be leaderboard according to the number of tokens earned,to make a healthy competition and create a sense of conscience that leads to a collective effort to reduce the usage.The app is completely built using flutter and firebase as backend. A chatbot is integrated to help users with information on ways to reduce the usage , it is built using openai Api.
 
 ## Technologies used
-Flutter,Firebase,Figma
+Flutter,Firebase,Figma,Openai API
+## Installation and setup 
+Download the repo and open in any IDE of your choice and run "pub get" command in terminal.
+## API Usage
+Openai API for chatbot integration -(https://docs.google.com/document/d/1kyg2og6pQ-fyU835fno2A1bvF6VvY7iABJuObPotdKY/edit?usp=sharing)
 ## Other Links
-Figma UI -(https://www.figma.com/design/BQPh05ICmTgprFkVxm6FyB/Untitled?node-id=0-1&t=Vfi2rlKfzmbQPUfL-1)  
-Presentation - (https://www.canva.com/design/DAGR8JDSJ5E/2aoQ-mmAyct5zm05AcdXZw/view?utm_content=DAGR8JDSJ5E&utm_campaign=designshare&utm_medium=link&utm_source=editor)  
+Figma UI -([https://www.figma.com/design/BQPh05ICmTgprFkVxm6FyB/Untitled?node-id=0-1&t=Vfi2rlKfzmbQPUfL-1)  
+Presentation - (https://www.canva.com/design/DAGR8JDSJ5E/2aoQ-mmAyct5zm05AcdXZw/view?utm_content=DAGR8JDSJ5E&utm_campaign=designshare&utm_medium=link&utm_source=editor](https://www.figma.com/design/sEL07mMhFuXihMypfF12pc/Sprinkle-and-Sprout?node-id=0-1&t=CSCwRpFbj6DAPgIN-1)  
